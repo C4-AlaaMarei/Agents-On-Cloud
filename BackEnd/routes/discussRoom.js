@@ -1,16 +1,16 @@
-// const express = require("express");
-// const {
-//   createNewDiscussRoom,
-//   deleteDiscussRoomById,
+const express = require("express");
+const {
+  createNewDiscussRoom,
+  deleteDiscussRoomById,
 
 
-// } = require("../controllers/discussRoom");
+} = require("../controllers/discussRoom");
 
-// const discussRoomRouter = express.Router();
-// const { authentication } = require("../middleware/authentication");
+const discussRoomRouter = express.Router();
+const { authentication } = require("../middleware/authentication");
 
-// discussRoomRouter.post("/:id",  createNewDiscussRoom);
-// discussRoomRouter.delete("/:id",  deleteDiscussRoomById);
+discussRoomRouter.post("/:id",  createNewDiscussRoom);
+discussRoomRouter.delete("/:id",  deleteDiscussRoomById);
 
-// module.exports = discussRoomRouter;
+module.exports = discussRoomRouter;
 
