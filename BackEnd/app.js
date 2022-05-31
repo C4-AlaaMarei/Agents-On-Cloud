@@ -14,5 +14,5 @@ const PORT = process.env.PORT || 5000;
 
 
 app.listen(PORT, () => {
-  console.log(`Example app at http://localhost:${PORT}`);
+  console.log(`Book Club App at http://localhost:${PORT}`);
 });
