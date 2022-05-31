@@ -52,8 +52,39 @@ const deleteDiscussRoomById = (req, res) => {
 
 
 
+const getAllDiscussRoom = (req, res) => {
+  // console.log(req.token)
+
+  // const user_id = req.token.userId;
+  // const data = [user_id];
+  const { id } = req.params;
+  const data = [id];
+
+  const query = `SELECT * FROM discussion_rooms WHERE book_id = ?`;
+  connection.query(query,data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: `Server Error`,
+      });
+    }     
+
+    if (!result) {
+      return res.status(200).json({
+        success: false,
+        message: `No discussion Yet`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `all discussion rooms available`,
+      books: result,
+    });
+  });
+};
+
 module.exports = {
   createNewDiscussRoom,
-
+  getAllDiscussRoom,
   deleteDiscussRoomById,
 };
