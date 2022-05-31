@@ -1,7 +1,7 @@
 
 
-DROP DATABASE Book_Club;
-CREATE DATABASE Book_Club;
+-- DROP DATABASE Book_Club;
+-- CREATE DATABASE Book_Club;
 USE Book_Club;
 
 CREATE TABLE roles (
