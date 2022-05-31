@@ -15,6 +15,7 @@ const bookRouter = require("./routes/book");
 const discussRoomRouter = require("./routes/discussRoom");
 
 const followingRoomRouter = require("./routes/followingRoom");
+const readingListRouter = require("./routes/readingList");
 
 
 app.use("/user", userRouter);
@@ -24,6 +25,7 @@ app.use("/book", bookRouter);
 app.use("/discussRoom", discussRoomRouter);
 
 app.use("/followingRoom", followingRoomRouter);
+app.use("/readingList", readingListRouter);
 
 
 app.listen(PORT, () => {
