@@ -50,8 +50,37 @@ const deleteBookById = (req, res) => {
 };
 
 
+const getAllBooks = (req, res) => {
+  // console.log(req.token)
+
+  // const user_id = req.token.userId;
+  // const data = [user_id];
+
+  const query = `SELECT * FROM library`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: `Server Error`,
+      });
+    }     
+
+    if (!result) {
+      return res.status(200).json({
+        success: false,
+        message: `No books Yet`,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: `all books available`,
+      books: result,
+    });
+  });
+};
+
 module.exports = {
   createNewBook,
- 
+  getAllBooks,
   deleteBookById,
 };
