@@ -1,7 +1,7 @@
 
 
--- DROP DATABASE Book_Club;
--- CREATE DATABASE Book_Club;
+DROP DATABASE Book_Club;
+CREATE DATABASE Book_Club;
 USE Book_Club;
 
 CREATE TABLE roles (
@@ -65,17 +65,6 @@ CREATE TABLE following_rooms(
 
 
 
--- CREATE TABLE comments (
---     id INT AUTO_INCREMENT NOT NULL,
---     comment VARCHAR(100) NOT NULL,
---     room_id INT NOT NULL,
---     user_id INT NOT NULL,
---     FOREIGN KEY (room_id) REFERENCES discussion_rooms (id),
---     FOREIGN KEY (user_id) REFERENCES users (id),
---     is_deleted TINYINT DEFAULT 0,
---     PRIMARY KEY (id)
-
--- );
 
 CREATE TABLE reading_list(
     id INT AUTO_INCREMENT NOT NULL PRIMARY KEY ,
@@ -92,6 +81,9 @@ CREATE TABLE suggestions(
     id INT AUTO_INCREMENT NOT NULL,
     book_suggest VARCHAR(100) NOT NULL,
     author VARCHAR(100) NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+
     is_deleted TINYINT DEFAULT 0,
     PRIMARY KEY (id)
 );
@@ -142,104 +134,104 @@ VALUES
 
 
     INSERT INTO
-    suggestions (book_suggest,author) VALUE ('Maths','decrt');
+    suggestions (book_suggest,author,user_id) VALUE ('Maths','decrt','1');
 
 
 
--- INSERT INTO
---     permissions (permission)
--- VALUES
---     ('Add');
+INSERT INTO
+    permissions (permission)
+VALUES
+    ('Add');
 
--- INSERT INTO
---     permissions (permission)
--- VALUES
---     ('Remove');
+INSERT INTO
+    permissions (permission)
+VALUES
+    ('Remove');
 
--- INSERT INTO
---     permissions (permission)
--- VALUES
---     ('Create');
+INSERT INTO
+    permissions (permission)
+VALUES
+    ('Create');
 
--- INSERT INTO
---     permissions (permission)
--- VALUES
---     ('Delete');
+INSERT INTO
+    permissions (permission)
+VALUES
+    ('Delete');
 
--- INSERT INTO
---     permissions (permission)
--- VALUES
---     ('View');
+INSERT INTO
+    permissions (permission)
+VALUES
+    ('View');
 
---   INSERT INTO
---     permissions (permission)
--- VALUES
---     ('Join');
+  INSERT INTO
+    permissions (permission)
+VALUES
+    ('Join');
 
---     INSERT INTO
---     permissions (permission)
--- VALUES
---     ('Unjoin');
+    INSERT INTO
+    permissions (permission)
+VALUES
+    ('Unjoin');
 
---     INSERT INTO
---     permissions (permission)
--- VALUES
---     ('Suggest');
+    INSERT INTO
+    permissions (permission)
+VALUES
+    ('Suggest');
 
--- INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (1, 1);
+INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (1, 1);
 
--- INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (1, 2);
--- INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (1, 3);
+INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (1, 2);
+INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (1, 3);
 
--- INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (1, 4);
--- INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (1, 5);
+INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (1, 4);
+INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (1, 5);
 
--- INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (2, 5);
+INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (2, 5);
 
--- INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (2,6);
--- INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (2,7);
+INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (2,6);
+INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (2,7);
     
---     INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (2,1);
+    INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (2,1);
     
---     INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (2,2);
+    INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (2,2);
     
---     INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (2,5);
+    INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (2,5);
 
---        INSERT INTO
---     role_permission (role, permission)
--- VALUES
---     (2,8); 
+       INSERT INTO
+    role_permission (role, permission)
+VALUES
+    (2,8); 
 
