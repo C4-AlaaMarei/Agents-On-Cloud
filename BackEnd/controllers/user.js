@@ -6,12 +6,12 @@ require("dotenv").config();
 
 // This function to sign up new user .
 const createNewUser = async (req, res) => {
-  const { userName, email, password ,role_id}= req.body;
+  const { user_name, email, password ,role_id}= req.body;
 
   const hashingPass = await bcrypt.hash(password, 5);
 
   const query = `INSERT INTO users ( user_name, email, password, role_id) VALUES (?,?,?,?)`;
-  const data = [userName, email, hashingPass,role_id];
+  const data = [user_name, email, hashingPass,role_id];
 
   connection.query(query,data,  (err, results) => {
     if (err) {
@@ -37,7 +37,7 @@ const createNewUser = async (req, res) => {
 // This function to get user by id.
 const getUserById = (req, res) => {
   const id = req.query.id;
-  const query = `SELECT * FROM user WHERE id=?`;
+  const query = `SELECT * FROM users WHERE id=?`;
   const data = [id];
 
   connection.query(query, data, (err, results) => {

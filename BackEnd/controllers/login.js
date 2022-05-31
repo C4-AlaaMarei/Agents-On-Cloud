@@ -7,7 +7,7 @@ require("dotenv").config();
 const login = (req, res) => {
   const email = req.body.email.toLowerCase();
   const password = req.body.password;
-  const query = `SELECT * FROM user WHERE email = ?`;
+  const query = `SELECT * FROM users WHERE email = ?`;
   const data = [email];
 
 
@@ -31,8 +31,10 @@ const login = (req, res) => {
       }
       const payload = {
         userId: result[0].id,
-        userName: result[0].userName,
+        userName: result[0].user_name,
         email: result[0].email,
+        roleId: result[0].role_id,
+
       };
 
       const options = {
