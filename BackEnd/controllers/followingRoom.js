@@ -1,19 +1,16 @@
 
-
-
-
-
 const connection = require("../database/db");
 
-const joinDiscussRoom = async (req, res) => {
+const joinDiscussRoom =  (req, res) => {
 
-  const { id } = req.params;
+  const { roomId } = req.params;
+  const user = req.token.userId;
 
-  const user_id = req.token.userId;
+  // console.log(user)
 
   const query = `INSERT INTO following_rooms (discussion_room_id,user_id) VALUES (?,?)`;
 
-  const data = [id,user_id];
+  const data = [roomId,user];
 
   connection.query(query, data, (err, results) => {
     if (err) {
@@ -30,6 +27,28 @@ const joinDiscussRoom = async (req, res) => {
     });
   });
 };
+
+
+// // This function creates new cart
+// const createNewCart = (req, res) => {
+//   const { item_id } = req.body;
+//   const user_id = req.token.userId;
+//   const query = `INSERT INTO carts (user_id,item_id) VALUE (?,?)`;
+//   const data = [user_id, item_id];
+//   connection.query(query, data, (err, result) => {
+//     if (err) {
+//       return res.status(500).json({
+//         success: false,
+//         message: `Server Error`,
+//       });
+//     }
+//     res.status(201).json({
+//       success: true,
+//       message: `cart created`,
+//       result: result,
+//     });
+//   });
+// };
 
 
 
@@ -56,7 +75,9 @@ const unJoinDiscussRoom = (req, res) => {
 };
 
 
+
+
 module.exports = {
-    joinDiscussRoom,
+  joinDiscussRoom,
   unJoinDiscussRoom,
 };

@@ -31,11 +31,18 @@ const login = (req, res) => {
       }
       const payload = {
         userId: result[0].id,
-        userName: result[0].user_name,
         email: result[0].email,
         roleId: result[0].role_id,
 
       };
+        // userName: result[0].user_name,
+
+      // const payload = {
+      //   userId: result[0].id,
+      //   role: result[0].role_id,
+      //   userName: result[0].user_name,
+      //   email: result[0].email,
+      // };
 
       const options = {
         expiresIn: "60m",
