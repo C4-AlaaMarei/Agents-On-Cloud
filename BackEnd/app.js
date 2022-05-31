@@ -17,6 +17,7 @@ const discussRoomRouter = require("./routes/discussRoom");
 const followingRoomRouter = require("./routes/followingRoom");
 const readingListRouter = require("./routes/readingList");
 
+const suggestRouter = require("./routes/suggest");
 
 app.use("/user", userRouter);
 app.use("/login", loginRouter);
@@ -27,6 +28,7 @@ app.use("/discussRoom", discussRoomRouter);
 app.use("/followingRoom", followingRoomRouter);
 app.use("/readingList", readingListRouter);
 
+app.use("/suggest", suggestRouter);
 
 app.listen(PORT, () => {
   console.log(`Book Club App at http://localhost:${PORT}`);
