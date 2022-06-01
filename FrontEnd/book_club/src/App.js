@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+
+import { Routes, Route, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Library from "./components/Library";
+
+
 
 function App() {
+
+  // const { token, isLoggedIn } = useSelector((state) => {
+  //   return {
+  //     token: state.loginReducer.token,
+  //     isLoggedIn: state.loginReducer.isLoggedIn,
+  //   };
+  // });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+<Routes>
+        <Route path="/" element={<Register />} />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/Home" element={<Home />} />
+        <Route path="/Library" element={<Library />} />
+
+        {/* <Route path="/RightNav" element={<RightNav />} />
+
+        <Route path="/Profile" element={<Profile />} />
+
+        <Route path="/Message" element={<Message />} />
+        <Route path="/LeftNav" element={<LeftNav />} /> */}
+      </Routes>
     </div>
   );
 }
