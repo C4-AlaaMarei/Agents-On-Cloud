@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
+// import Library from "./components/Library";
 
 // import Nav from "./Nav";
 // import Register from "./components/Register";
@@ -16,7 +17,7 @@ function Home() {
     <div className="Home">
       {/* <div class="container"> */}
         <div>
-          {/* <Nav /> */}
+          {/* <Library /> */}
         </div>
         <div class="row">
           <div class="col">

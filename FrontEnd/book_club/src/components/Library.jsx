@@ -17,7 +17,6 @@ import { useSelector } from "react-redux";
 // import RightNav from "./RightNav";
 // // import Main from "./components/Main";
 function Library() {
-
   const { token, isLoggedIn } = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -26,7 +25,7 @@ function Library() {
   });
   const [message, setMessage] = useState("");
 
-    const [books, setBooks] = useState("");
+  const [books, setBooks] = useState("");
 
   const getAllIBooks = async () => {
     try {
@@ -59,8 +58,7 @@ function Library() {
           },
         }
       )
-      .then((result) => {
-      })
+      .then((result) => {})
       .catch((err) => {});
   };
 

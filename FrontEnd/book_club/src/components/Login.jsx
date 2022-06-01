@@ -7,16 +7,13 @@ import jwt from "jwt-decode";
 import { Form, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 
-
 function Login() {
-
   const { token, isLoggedIn } = useSelector((state) => {
     return {
       token: state.loginReducer.token,
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
-
 
   const history = useNavigate();
   // const dispatch = useDispatch();
@@ -40,7 +37,7 @@ function Login() {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userName", jwt(res.data.token).userName);
         localStorage.setItem("isAdmin?", jwt(res.data.token).roleId);
-       console.log(res.data.token.userName)
+        console.log(res.data.token.userName);
         setEmail("");
         setPassword("");
 

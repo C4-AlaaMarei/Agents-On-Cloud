@@ -172,11 +172,6 @@ function User() {
                 Fan
               </ToggleButton>
             </ButtonGroup>
-
-
-
-
-
           </div>
 
           <br />
@@ -191,9 +186,7 @@ function User() {
             Register
           </Button>
         </Form>
-        <Link className="a" to={"/login"}
-         style={{ marginLeft: "120px" }}
-         >
+        <Link className="a" to={"/login"} style={{ marginLeft: "120px" }}>
           Already Have Account !
         </Link>
       </div>
