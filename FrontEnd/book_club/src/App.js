@@ -30,12 +30,11 @@ function App() {
         <Route path="/Home" element={<Home />} />
         <Route path="/Library" element={<Library />} />
 
-        {/* <Route path="/RightNav" element={<RightNav />} />
+      <Route path="/readingList" element={<readingList />} />
 
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/suggestion" element={<suggestion />} />
 
-        <Route path="/Message" element={<Message />} />
-        <Route path="/LeftNav" element={<LeftNav />} /> */}
+    
       </Routes>
     </div>
   );

@@ -1,15 +1,11 @@
 import { Routes, Route, Link } from "react-router-dom";
 
-
 import React, { useEffect, useState } from "react";
 import jwt from "jwt-decode";
 import axios from "axios";
 
-
 //   const [message, setMessage] = useState("");
-  const [books, setBooks] = useState("");
 //   const [image, setImage] = useState("");
-//   const [tweet_id, setTweet_id] = useState("");
 //   const [user_id, setUser_id] = useState("");
 // import Nav from "./Nav";
 // import Register from "./components/Register";
@@ -20,11 +16,10 @@ import axios from "axios";
 // // import Profile from "./components/Profile";
 // import RightNav from "./RightNav";
 // // import Main from "./components/Main";
-// import Tweet from "./Tweet";
-// import Tap from "./Tap";
 function Library() {
 
-    
+    const [books, setBooks] = useState("");
+
   const getAllIBooks = async () => {
     try {
       const res = await axios.get("http://localhost:5000/book/");
@@ -44,7 +39,7 @@ function Library() {
       setMessage("Error happened while Get Data, please try again");
     }
   };
-  
+
   const deleteBook = async (id) => {
     await axios
       .delete(
@@ -61,8 +56,7 @@ function Library() {
         getUserTweets();
       })
       .catch((err) => {});
-    }
-
+  };
 
   useEffect(() => {
     getAllIBooks();
@@ -70,28 +64,27 @@ function Library() {
 
   return (
     <div className="Library">
-        <div className="allTweets">
+      <div className="allTweets">
         {books.map((book, index) => {
           return (
-            <div key={index} className="singleTweet" style={{marginTop:"30px"}} >
-              {/* <img src={tweet.image} alt={tweet.tweet} /> */}
+            <div
+              key={index}
+              className="singleTweet"
+              style={{ marginTop: "30px" }}
+            >
               <p style={{ height: "200px" }}>{book.book_title}</p>
               <button
-              class="btn btn-primary"
-              style={{ marginRight:"30px"}}
-
+                class="btn btn-primary"
+                style={{ marginRight: "30px" }}
                 onClick={(e) => {
-                  // getWorkerByServiceId(service.id);
-                  // setTweet_id(tweet.id);
                   deleteBook(book.id);
                 }}
               >
-               Delete this Book{" "}
+                Delete this Book{" "}
               </button>
               <button
-                                      class="btn btn-primary"
-                                      style={{ marginLeft:"30px"}}
-
+                class="btn btn-primary"
+                style={{ marginLeft: "30px" }}
                 onClick={(e) => {
                   // getWorkerByServiceId(service.id);
                 }}
@@ -102,7 +95,6 @@ function Library() {
           );
         })}
       </div>
-     
     </div>
   );
 }
