@@ -3,8 +3,8 @@ import { Routes, Route, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import jwt from "jwt-decode";
 import axios from "axios";
-
-//   const [message, setMessage] = useState("");
+// import { Routes, Route, Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 //   const [image, setImage] = useState("");
 //   const [user_id, setUser_id] = useState("");
 // import Nav from "./Nav";
@@ -17,6 +17,14 @@ import axios from "axios";
 // import RightNav from "./RightNav";
 // // import Main from "./components/Main";
 function Library() {
+
+  const { token, isLoggedIn } = useSelector((state) => {
+    return {
+      token: state.loginReducer.token,
+      isLoggedIn: state.loginReducer.isLoggedIn,
+    };
+  });
+  const [message, setMessage] = useState("");
 
     const [books, setBooks] = useState("");
 
@@ -52,8 +60,6 @@ function Library() {
         }
       )
       .then((result) => {
-        dispatch(deleteTweets(id));
-        getUserTweets();
       })
       .catch((err) => {});
   };
@@ -64,12 +70,12 @@ function Library() {
 
   return (
     <div className="Library">
-      <div className="allTweets">
+      <div className="allTwbooks">
         {books.map((book, index) => {
           return (
             <div
               key={index}
-              className="singleTweet"
+              className="singlebook"
               style={{ marginTop: "30px" }}
             >
               <p style={{ height: "200px" }}>{book.book_title}</p>

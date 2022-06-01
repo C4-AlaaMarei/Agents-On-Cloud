@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import Register from "./components/Register";
@@ -13,12 +13,12 @@ import Library from "./components/Library";
 
 function App() {
 
-  // const { token, isLoggedIn } = useSelector((state) => {
-  //   return {
-  //     token: state.loginReducer.token,
-  //     isLoggedIn: state.loginReducer.isLoggedIn,
-  //   };
-  // });
+  const { token, isLoggedIn } = useSelector((state) => {
+    return {
+      token: state.loginReducer.token,
+      isLoggedIn: state.loginReducer.isLoggedIn,
+    };
+  });
   return (
     <div className="App">
 

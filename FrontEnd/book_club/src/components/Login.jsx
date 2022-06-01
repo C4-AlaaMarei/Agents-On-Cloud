@@ -5,9 +5,19 @@ import axios from "axios";
 import jwt from "jwt-decode";
 // import { useDispatch } from "react-redux";
 import { Form, Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 
 function Login() {
+
+  const { token, isLoggedIn } = useSelector((state) => {
+    return {
+      token: state.loginReducer.token,
+      isLoggedIn: state.loginReducer.isLoggedIn,
+    };
+  });
+
+
   const history = useNavigate();
   // const dispatch = useDispatch();
 
